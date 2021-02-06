@@ -8,7 +8,17 @@ public class Main {
 //		myThread.start();
 //		myThread2.start();
 		
-		Thread t1 = new Thread(new Runner());
+		Thread t1 = new Thread(()->{
+			for(int i=0; i<10; i++){
+				System.out.println(i);
+				
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		});
 		t1.start();
 	}
 }
